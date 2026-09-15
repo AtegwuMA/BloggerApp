@@ -17,9 +17,10 @@ Java, Spring Boot, Spring Data JPA, Postgres.
 
 ## Running it
 
-You'll need a local Postgres database. Update the connection details in `src/main/resources/application.properties`, then:
+You'll need a local Postgres database. Set `DB_PASSWORD` before starting the app (`DB_URL` and `DB_USERNAME` are also available if your setup differs from `localhost:8085/face_b_test_R` with user `postgres`):
 
 ```bash
+export DB_PASSWORD=yourpassword
 ./mvnw spring-boot:run
 ```
 
@@ -52,4 +53,4 @@ All endpoints are under `/api`.
 
 ## Note on secrets
 
-The Postgres password in `src/main/resources/application.properties` is a real, committed credential from local development. Rotate that password and remove it from the file (use an environment variable instead) before treating this repo as public-facing.
+An earlier version of this repo had a real Postgres password committed in `application.properties`. It's been replaced with an environment variable, but that old password is still visible in the git history, so it should be rotated on the actual database if it hasn't been already.
